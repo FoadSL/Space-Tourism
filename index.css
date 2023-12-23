@@ -8,19 +8,39 @@
   --color-white: 0 0% 100%;
 
   /* font-sizes */
-  --fs-900: 9.375rem; /* 150 */
-  --fs-800: 6.25rem; /* 100 */
-  --fs-700: 3.5rem; /* 56 */
-  --fs-600: 2rem; /* 32 */
+  --fs-900: clamp(5rem, 10vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
   --fs-500: 1.75rem; /* 28 */
-  --fs-400: 1.125rem; /* 20 */
-  --fs-300: 1rem; /* 16 */
-  --fs-200: 0.875rem; /* 14 */
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
 
   /* font-families */
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
+}
+
+@media (min-width: 35em) {
+  :root {
+    /* --fs-900: 9.375rem; */
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 6.25rem; /* 100 */
+    --fs-700: 3.5rem; /* 56 */
+    --fs-600: 2rem; /* 32 */
+    --fs-400: 1.125rem; /* 20 */
+  }
 }
 
 /* -------------------- */
@@ -67,6 +87,9 @@ body {
 
   line-height: 1.5;
   min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 /* Make images easier to work with */
@@ -112,6 +135,10 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
 }
@@ -120,6 +147,27 @@ select {
   padding-inline: 2em;
   max-width: 100rem;
   margin-inline: auto;
+}
+
+.grid-container {
+  display: grid;
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        2rem,
+        1fr
+      );
+  }
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
 }
 
 .sr-only {
@@ -250,6 +298,7 @@ select {
 /* -------------------- */
 /* components           */
 /* -------------------- */
+
 .large-button {
   position: relative;
   display: inline-grid;
