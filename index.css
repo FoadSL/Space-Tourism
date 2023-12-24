@@ -335,12 +335,41 @@ select {
   transform: scale(1.5);
 }
 
+.primary-header {
+  position: relative;
+  display: flex;
+}
+
+.primary-header div {
+  flex: 1;
+}
+
+.mobile-nav-toggle {
+  z-index: 10000;
+}
+
 .primary-navigation {
-  --gap: 8rem;
+  /* --gap: 8rem; */
   --underline: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
+
+  position: absolute;
+  padding-top: 5rem;
+  right: 0;
+  top: 0;
+  width: 80%;
+  height: 100vh;
+  background-color: hsl(var(--color-white) / 0.1);
+  backdrop-filter: blur(20px);
+  backface-visibility: hidden;
+  z-index: 1000;
+}
+
+.primary-navigation li {
+  width: 80%;
+  padding-left: 2rem;
 }
 
 .primary-navigation a {
