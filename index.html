@@ -22,6 +22,8 @@
     <!-- Our custom CSS -->
     <link rel="stylesheet" href="index.css" />
 
+    <script type="module" src="./index.js"></script>
+
     <title>Frontend Mentor | Space tourism website</title>
   </head>
   <body class="home">
@@ -33,13 +35,18 @@
           class="logo"
         />
       </div>
-      <button class="mobile-nav-toggle" aria-controls="primary-navigation">
-        <span class="sr-only" aria-expanded="false">Menu</span>
+      <button
+        class="mobile-nav-toggle"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Menu</span>
       </button>
       <nav>
         <ul
           id="primary-navigation"
-          class="primary-navigation underline-indicators"
+          data-visible="false"
+          class="primary-navigation flex underline-indicators"
         >
           <li class="active">
             <a

@@ -90,6 +90,8 @@ body {
 
   display: grid;
   grid-template-rows: min-content 1fr;
+
+  overflow-x: hidden;
 }
 
 /* Make images easier to work with */
@@ -335,41 +337,87 @@ select {
   transform: scale(1.5);
 }
 
-.primary-header {
-  position: relative;
-  display: flex;
-}
-
-.primary-header div {
-  flex: 1;
-}
-
-.mobile-nav-toggle {
-  z-index: 10000;
-}
-
 .primary-navigation {
-  /* --gap: 8rem; */
-  --underline: 2rem;
+  --underline-gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
+  background-color: hsl(var(--color-dark) / 0.95);
+  /* backdrop-filter: blur(1.5rem); */
+}
 
-  position: absolute;
-  padding-top: 5rem;
-  right: 0;
-  top: 0;
-  width: 80%;
-  height: 100vh;
-  background-color: hsl(var(--color-white) / 0.1);
-  backdrop-filter: blur(20px);
-  backface-visibility: hidden;
-  z-index: 1000;
+@supports (backdrop-filter: blur(1rem)) {
+  .primary-navigation {
+    background-color: hsl(var(--color-white) / 0.05);
+    backdrop-filter: blur(1.5rem);
+  }
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 35rem) {
+  .primary-navigation {
+    --underline-gap: 0.5rem;
+    gap: 1rem;
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 30%;
+    list-style: none;
+    padding: min(6rem, 20vh) 2rem;
+    margin: 0;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
+  }
+
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0);
+  }
+
+  .primary-navigation.underline-indicators > .active {
+    border: none;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 1rem;
+    top: 2rem;
+    background: transparent;
+    border: none;
+    background-image: url(./assets/shared/icon-hamburger.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    fill: white;
+    transition: background-image 100ms ease-in-out;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url(./assets/shared/icon-close.svg);
+  }
+
+  .mobile-nav-toggle:focus-visible {
+    outline: 5px solid hsl(var(--color-white));
+    outline-offset: 5px;
+  }
+
+  .toggle-nav {
+    transform: translateX(0);
+  }
+
+  .toggle-btn {
+    background-image: url(./assets/shared/icon-close.svg);
+  }
 }
 
 .primary-navigation li {
   width: 80%;
-  padding-left: 2rem;
+  /* padding-left: 2rem; */
 }
 
 .primary-navigation a {
