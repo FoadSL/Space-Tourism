@@ -345,7 +345,7 @@ select {
 
 .primary-header {
   justify-content: space-between;
-  /* align-items: center; */
+  align-items: center;
 }
 
 .primary-navigation {
@@ -440,26 +440,38 @@ select {
   }
 }
 
-@media (min-width: 35em) and (max-width: 45em) {
+@media (min-width: 35em) {
   .primary-navigation {
-    padding-inline: 3rem;
+    padding-inline: clamp(3rem, 7vw, 7rem);
   }
+}
 
+@media (min-width: 35em) and (max-width: 44.999em) {
   .primary-navigation a > span {
     display: none;
   }
 }
 
 @media (min-width: 45em) {
-  .primary-header {
-    margin-top: 2rem;
-  }
-  .primary-navigation {
-    padding-left: 8rem;
-    padding-right: 6rem;
+  /* TEACHER SOLUTION: */
+  .primary-header::after {
+    content: "";
+    display: block;
+    position: relative;
+    height: 1px;
+    width: 100%;
+    margin-right: -2.5rem;
+    z-index: 1000;
+    background-color: hsl(var(--color-white) / 0.25);
+    order: 1;
   }
 
   nav {
+    order: 2;
+  }
+
+  /* MY SOLUTION */
+  /* nav {
     display: flex;
     width: 100%;
     align-items: center;
@@ -468,16 +480,16 @@ select {
   nav::before {
     content: "";
     display: block;
-    background-color: hsl(var(--color-white));
+    background-color: hsl(var(--color-white) / 0.25);
     color: aliceblue;
-    width: 100%;
     height: 1px;
     flex: 1;
-    transform: translateX(2rem);
+    margin-right: -2.5rem;
     z-index: 1000;
-  }
+  }*/
 
-  .primary-navigation::before {
+  .primary-navigation {
+    margin-block: 2rem;
   }
 }
 
