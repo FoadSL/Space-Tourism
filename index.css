@@ -185,6 +185,10 @@ select {
   }
 }
 
+.home {
+  position: relative;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -195,6 +199,25 @@ select {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  background-color: hsl(var(--color-white));
+  color: hsl(var(--color-dark));
+  padding: 0.5em 1em;
+  margin-inline: auto;
+
+  /* opacity: 0; */
+  transform: translateY(-100%);
+  transition: opacity 500ms linear;
+  transition: transform 250ms ease-in;
+}
+
+.skip-to-content:focus {
+  /* opacity: 1; */
+  transform: translateY(0);
 }
 
 .box {
