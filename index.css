@@ -12,7 +12,7 @@
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
   --fs-600: 1rem;
-  --fs-500: 1.75rem; /* 28 */
+  --fs-500: 1rem;
   --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
@@ -29,6 +29,7 @@
     --fs-800: 5rem;
     --fs-700: 2.5rem;
     --fs-600: 1.5rem;
+    --fs-500: 1.25rem;
     --fs-400: 1rem;
   }
 }
@@ -38,6 +39,7 @@
     /* font-sizes */
     --fs-800: 6.25rem; /* 100 */
     --fs-700: 3.5rem; /* 56 */
+    --fs-500: 1.75rem; /* 28 */
     --fs-600: 2rem; /* 32 */
     --fs-400: 1.125rem; /* 20 */
   }
@@ -151,40 +153,6 @@ select {
   margin-inline: auto;
 }
 
-.grid-container {
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding-inline: 1rem;
-}
-
-.grid-container * {
-  max-width: 50ch;
-}
-
-@media (min-width: 45em) {
-  .grid-container {
-    column-gap: var(--container-gap, 2rem);
-    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
-        1rem,
-        1fr
-      );
-    text-align: left;
-  }
-  .grid-container > *:first-child {
-    grid-column: 2;
-  }
-
-  .grid-container > *:last-child {
-    grid-column: 3;
-  }
-
-  .grid-container--home {
-    padding-bottom: max(6rem, 20vh);
-    align-items: end;
-  }
-}
-
 .home {
   position: relative;
 }
@@ -218,11 +186,6 @@ select {
 .skip-to-content:focus {
   /* opacity: 1; */
   transform: translateY(0);
-}
-
-.box {
-  background-color: lightblue;
-  padding: 3rem;
 }
 
 /* colors */
@@ -453,14 +416,6 @@ select {
     outline: 5px solid hsl(var(--color-white));
     outline-offset: 5px;
   }
-
-  .toggle-nav {
-    transform: translateX(0);
-  }
-
-  .toggle-btn {
-    background-image: url(./assets/shared/icon-close.svg);
-  }
 }
 
 @media (min-width: 35em) {
@@ -543,6 +498,15 @@ select {
   --gap: 2.5rem;
 }
 
+.tab-list > * {
+  background-color: hsl(var(--color-dark));
+  color: hsl(var(--color-light));
+  font-family: var(--ff-sans-cond);
+  font-size: var(--fs-300);
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+}
+
 .dot-indicators > * {
   cursor: pointer;
   border: none;
@@ -550,6 +514,10 @@ select {
   aspect-ratio: 1;
   padding: 0.5em;
   background-color: hsl(var(--color-white) / 0.25);
+}
+
+.dot-indicators > button[aria-selected="true"] {
+  color: hsl(var(--color-white));
 }
 
 .dot-indicators > button:hover,
@@ -606,5 +574,55 @@ body {
 @media (min-width: 45em) {
   .home {
     background-image: url(./assets/home/background-home-desktop.jpg);
+  }
+}
+
+/* ---------------------------- */
+/* Layout                       */
+/* ---------------------------- */
+
+.grid-container {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding-inline: 1rem;
+}
+
+.grid-container * {
+  max-width: 50ch;
+}
+
+.grid-container--destination {
+  --gap: 4rem;
+}
+
+.grid-container--destination h1 {
+  justify-self: start;
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        1rem,
+        1fr
+      );
+    text-align: left;
+  }
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
+
+  .grid-container--destination h1 {
+    justify-self: center;
   }
 }
