@@ -608,10 +608,6 @@ body {
   --flow-space: 2rem;
 }
 
-.grid-container--destination > h1 {
-  justify-self: start;
-}
-
 .grid-container--destination > img {
   grid-area: image;
   max-width: 60%;
@@ -639,12 +635,18 @@ body {
 }
 
 @media (min-width: 35em) {
-  .grid-container--destination > img {
-    width: 50%;
+  .grid-container--destination .numbered-title {
+    justify-self: start;
+    margin-top: 2rem;
   }
+
+  /* .grid-container--destination > img {
+    width: 50%;
+  } */
+
   .destination-meta {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 }
 
