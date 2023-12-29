@@ -486,15 +486,10 @@ select {
   padding: var(--underline-gap, 0.5rem) 0;
   border: none;
   border-bottom: 0.2rem solid hsl(var(--color-white) / 0);
+  background-color: transparent;
 }
-
-.underline-indicators > li:hover,
-.underline-indicators > li:focus {
-  border-color: hsl(var(--color-white) / 0.5);
-}
-
-.underline-indicators > button:hover,
-.underline-indicators > button:focus {
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
   border-color: hsl(var(--color-white) / 0.5);
 }
 
@@ -502,7 +497,6 @@ select {
 .underline-indicators > [aria-selected="true"] {
   color: hsl(var(--color-white) / 1);
   border-color: hsl(var(--color-white) / 1);
-  outline: none;
 }
 
 .tab-list {
