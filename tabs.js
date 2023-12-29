@@ -28,19 +28,17 @@ const changeTabPanel = function (targetTab) {
 
   const curTab = tabContainer.querySelector('[aria-selected="true"]');
 
-  // curTab.setAttribute("tabindex", "-1");
+  curTab.setAttribute("tabindex", "-1");
   curTab.setAttribute("aria-selected", "false");
 
-  // targetTab.setAttribute("tabindex", "0");
+  targetTab.setAttribute("tabindex", "0");
   targetTab.setAttribute("aria-selected", "true");
-  // targetTab.focus();
 };
 
 const changeTabFocus = function (e) {
   const keyDownLeft = 37;
   const keyDownRight = 39;
 
-  // change the tabindex of the current tab to -1
   if (e.keyCode === keyDownLeft || e.keyCode === keyDownRight) {
     e.target.setAttribute("tabindex", "-1");
     e.target.setAttribute("aria-selected", "false");

@@ -525,8 +525,8 @@ select {
   color: hsl(var(--color-white));
 }
 
-.dot-indicators > button:hover,
-.dot-indicators > button:focus {
+.dot-indicators > *:hover,
+.dot-indicators > *:focus {
   background-color: hsl(var(--color-white) / 0.5);
 }
 
@@ -657,6 +657,7 @@ body {
 .grid-container--destination > picture {
   grid-area: image;
   max-width: 60%;
+  align-self: start;
 }
 
 .grid-container--destination > .tab-list {
@@ -785,3 +786,8 @@ body {
     align-self: end;
   }
 }
+
+/* html {
+  scrollbar-gutter: stable;
+  scrollbar-gutter: stable both-edges;
+} */
