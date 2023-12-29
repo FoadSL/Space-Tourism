@@ -21,8 +21,8 @@
 
     <!-- Our custom CSS -->
     <link rel="stylesheet" href="index.css" />
-
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./navigation.js"></script>
+    <script type="module" src="./tabs.js"></script>
 
     <title>Frontend Mentor | Space tourism website</title>
   </head>
@@ -112,27 +112,43 @@
         <img src="assets/destination/image-titan.png" alt="the moon titan" />
       </picture>
 
-      <div class="tab-list underline-indicators flex">
+      <div
+        class="tab-list underline-indicators flex"
+        role="tablist"
+        aria-label="destination list"
+      >
         <button
+          role="tab"
+          aria-controls="moon-tab"
           aria-selected="true"
+          tabindex="0"
           class="uppercase ff-sans-cond text-accent letter-spacing-2"
         >
           Moon
         </button>
         <button
+          role="tab"
+          aria-controls="mars-tab"
           aria-selected="false"
+          tabindex="-1"
           class="uppercase ff-sans-cond text-accent letter-spacing-2"
         >
           Mars
         </button>
         <button
+          role="tab"
+          aria-controls="europa-tab"
           aria-selected="false"
+          tabindex="-1"
           class="uppercase ff-sans-cond text-accent letter-spacing-2"
         >
           Europa
         </button>
         <button
+          role="tab"
+          aria-controls="titan-tab"
           aria-selected="false"
+          tabindex="-1"
           class="uppercase ff-sans-cond text-accent letter-spacing-2"
         >
           Titan

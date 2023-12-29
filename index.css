@@ -502,6 +502,7 @@ select {
 .underline-indicators > [aria-selected="true"] {
   color: hsl(var(--color-white) / 1);
   border-color: hsl(var(--color-white) / 1);
+  outline: none;
 }
 
 .tab-list {
