@@ -1,18 +1,23 @@
 const tabList = document.querySelector('[role="tablist"]');
 const tabs = tabList.querySelectorAll('[role="tab"]');
-const pictures = document.querySelectorAll("picture");
-const articles = document.querySelectorAll("article");
 
 console.log(Array.from(tabs));
 
 let tabFocus = 0;
 
-const changeContent = function (index) {
-  pictures.forEach((tab) => tab.setAttribute("hidden", ""));
-  pictures[index].removeAttribute("hidden");
+const changeContent = function (targetTab) {
+  const mainContainer = targetTab.parentElement.parentElement;
+  const tabPanels = mainContainer.querySelectorAll('[role="tabpanel"');
+  const pictures = mainContainer.querySelectorAll("picture");
 
-  articles.forEach((article) => article.setAttribute("hidden", ""));
-  articles[index].removeAttribute("hidden");
+  const targetPanel = targetTab.getAttribute("aria-controls");
+  const targetImage = targetTab.getAttribute("data-image");
+
+  pictures.forEach((picture) => picture.setAttribute("hidden", ""));
+  mainContainer.querySelector(`#${targetImage}`).removeAttribute("hidden");
+
+  tabPanels.forEach((tab) => tab.setAttribute("hidden", ""));
+  mainContainer.querySelector(`#${targetPanel}`).removeAttribute("hidden");
 };
 
 const changeTabFocus = function (e) {
@@ -39,24 +44,24 @@ const changeTabFocus = function (e) {
   tabs[tabFocus].setAttribute("aria-selected", "true");
   tabs[tabFocus].focus();
 
-  changeContent(tabFocus);
+  changeContent(tabs[tabFocus]);
 };
 
 tabList.addEventListener("keydown", changeTabFocus);
+
 tabList.addEventListener("click", function (e) {
-  const clickedTab = e.target.closest('[role="tab"]');
-  if (!clickedTab) return;
+  const targetTab = e.target.closest('[role="tab"]');
+  if (!targetTab) return;
 
   const prevTab = Array.from(tabs).find(
-    (tab) => tab.attributes.tabIndex.value === "0"
+    (tab) => tab.attributes.tabindex.value === "0"
   );
   prevTab.setAttribute("tabindex", "-1");
   prevTab.setAttribute("aria-selected", "false");
 
-  const tabIndex = Array.from(tabs).findIndex((tab) => tab === clickedTab);
-  changeContent(tabIndex);
+  targetTab.setAttribute("tabindex", "0");
+  targetTab.setAttribute("aria-selected", "true");
+  targetTab.focus();
 
-  tabs[tabIndex].setAttribute("tabindex", "0");
-  tabs[tabIndex].setAttribute("aria-selected", "true");
-  tabs[tabIndex].focus();
+  changeContent(targetTab);
 });

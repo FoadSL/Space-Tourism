@@ -498,7 +498,7 @@ select {
   border-color: hsl(var(--color-white) / 0.5);
 }
 
-/* .underline-indicators > .active, */
+.underline-indicators > .active,
 .underline-indicators > [aria-selected="true"] {
   color: hsl(var(--color-white) / 1);
   border-color: hsl(var(--color-white) / 1);
