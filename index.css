@@ -604,7 +604,7 @@ body {
 /* crew */
 
 .crew {
-  background-image: url(./assets/crew/background-crew-desktop.jpg);
+  background-image: url(./assets/crew/background-crew-mobile.jpg);
 }
 
 @media (min-width: 35em) {
@@ -620,6 +620,25 @@ body {
   }
 }
 
+/* technology */
+
+.technology {
+  background-image: url(./assets/technology/background-technology-mobile.jpg);
+}
+
+@media (min-width: 35em) {
+  .technology {
+    background-position: center center;
+    background-image: url(./assets/technology/background-technology-tablet.jpg);
+  }
+}
+
+@media (min-width: 45em) {
+  .technology {
+    background-image: url(./assets/technology/background-technology-desktop.jpg);
+  }
+}
+
 /* ---------------------------- */
 /* Layout                       */
 /* ---------------------------- */
@@ -628,7 +647,7 @@ body {
   display: grid;
   place-items: center;
   text-align: center;
-  padding-inline: 1rem;
+  padding-inline: 1.5rem;
   padding-bottom: 4rem;
 }
 
@@ -639,6 +658,11 @@ body {
 .numbered-title {
   grid-area: title;
 }
+
+.grid-container > picture {
+  grid-area: image;
+}
+
 /* destination layout */
 
 .grid-container--destination {
@@ -650,12 +674,8 @@ body {
     "content";
 }
 
-.grid-container--destination > .numbered-title {
-  /* grid-area: title !important; */
-}
-
 .grid-container--destination > picture {
-  grid-area: image;
+  /* grid-area: image; */
   max-width: 60%;
   align-self: start;
 }
@@ -691,7 +711,7 @@ body {
 }
 
 .grid-container--crew > picture {
-  grid-area: image;
+  /* grid-area: image; */
   max-width: 60%;
   border-bottom: 1px solid hsl(var(--color-white) / 0.1);
 }
@@ -704,8 +724,47 @@ body {
   grid-area: content;
 }
 
+.crew-details h2 {
+  color: hsl(var(--color-white) / 0.5);
+}
+
+/* technology layout */
+
+.grid-container--technology {
+  --flow-space: 2rem;
+  padding-inline: 0;
+  grid-template-areas:
+    "title"
+    "image"
+    "tabs"
+    "content";
+}
+
+.grid-container--technology > picture {
+  transform: scale(1.05);
+}
+
+.grid-container--technology > .numbered-title {
+  padding-inline: 2rem;
+}
+
+.grid-container--technology > .number-indicators {
+  grid-area: tabs;
+}
+
+.grid-container--technology > .number-indicators > * {
+  width: 2.6rem;
+}
+
+.grid-container--technology > .technology-details {
+  margin-top: 2rem;
+  --flow-space: 1rem;
+  padding-inline: 2rem;
+  grid-area: content;
+}
+
 @media (min-width: 35em) {
-  .grid-container--destination .numbered-title {
+  .grid-container .numbered-title {
     justify-self: start;
     margin-top: 2rem;
   }
@@ -723,10 +782,10 @@ body {
       "dots"
       "image";
   }
-}
 
-.crew-details h2 {
-  color: hsl(var(--color-white) / 0.5);
+  .grid-container--technology > .number-indicators > * {
+    width: 3.8rem;
+  }
 }
 
 @media (min-width: 45em) {
@@ -791,6 +850,22 @@ body {
   .grid-container--crew > picture {
     grid-column: span 2;
     align-self: end;
+  }
+
+  .grid-container--technology {
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(
+        1rem,
+        1fr
+      );
+
+    grid-template-areas:
+      ". title image ."
+      ". tabs  image ."
+      ". content     image .";
+  }
+
+  .grid-container--technology > .number-indicators > * {
+    width: 5rem;
   }
 }
 
