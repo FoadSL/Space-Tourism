@@ -545,7 +545,7 @@ select {
   border: 1px solid hsl(var(--color-white) / 0.2);
 }
 
-.number-indicators > button:hover {
+.number-indicators > *:hover {
   border: 1px solid hsl(var(--color-white) / 1);
 }
 
@@ -772,6 +772,12 @@ body {
   }
 
   .grid-container--crew {
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(
+        1rem,
+        1fr
+      );
+
+    justify-items: start;
     grid-template-areas:
       ". title image ."
       ". content image ."
@@ -783,6 +789,7 @@ body {
   }
 
   .grid-container--crew > picture {
+    grid-column: span 2;
     align-self: end;
   }
 }
