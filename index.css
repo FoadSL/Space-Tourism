@@ -853,19 +853,46 @@ body {
   }
 
   .grid-container--technology {
-    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(
-        1rem,
-        1fr
-      );
+    grid-template-columns:
+      minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem)
+      minmax(1rem, 1fr);
+
+    justify-items: start;
 
     grid-template-areas:
       ". title image ."
-      ". tabs  image ."
-      ". content     image .";
+      ". tabs image ."
+      ". content image .";
+  }
+
+  .grid-container--technology > .numbered-title {
+    grid-column: 2 / span 2;
+    padding-inline: 0;
   }
 
   .grid-container--technology > .number-indicators > * {
     width: 5rem;
+  }
+
+  .grid-container--technology > picture {
+    grid-column: -3 / span 2;
+  }
+}
+
+@media (min-width: 55em) {
+  .grid-container--technology {
+    grid-template-columns:
+      minmax(1rem, 1fr) 5rem minmax(0, 37rem) minmax(0, 23rem)
+      minmax(1rem, 1fr);
+
+    grid-template-areas:
+      ". title title   image ."
+      ". tabs content  image ."
+      ". tabs content image .";
+  }
+
+  .grid-container--technology > .number-indicators {
+    display: grid;
   }
 }
 
