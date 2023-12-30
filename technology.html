@@ -97,7 +97,36 @@
             type="image/jpg"
           />
           <img
-            src="./assets/technology/image-launch-vehicle-landscape.jpg"
+            srcset="./assets/technology/image-launch-vehicle-portrait.jpg"
+            alt=""
+          />
+        </picture>
+
+        <picture hidden id="spaceport-image">
+          <source
+            media="(min-width: 45em)"
+            srcset="./assets/technology/image-spaceport-portrait.jpg"
+            type="image/jpg"
+          />
+          <source
+            srcset="./assets/technology/image-spaceport-landscape.jpg"
+            type="image/jpg"
+          />
+          <img src="./assets/technology/image-spaceport-portrait.jpg" alt="" />
+        </picture>
+
+        <picture hidden id="capsule-image">
+          <source
+            media="(min-width: 45em)"
+            srcset="./assets/technology/image-space-capsule-portrait.jpg"
+            type="image/jpg"
+          />
+          <source
+            srcset="./assets/technology/image-space-capsule-landscape.jpg"
+            type="image/jpg"
+          />
+          <img
+            src="./assets/technology/image-space-capsule-portrait.jpg"
             alt=""
           />
         </picture>
@@ -118,8 +147,8 @@
           </button>
           <button
             aria-selected="false"
-            aria-controls="vehicle-tab"
-            data-image="vehicle-image"
+            aria-controls="spaceport-tab"
+            data-image="spaceport-image"
             role="tab"
             tabindex="0"
           >
@@ -127,8 +156,8 @@
           </button>
           <button
             aria-selected="false"
-            aria-controls="vehicle-tab"
-            data-image="vehicle-image"
+            aria-controls="capsule-tab"
+            data-image="capsule-image"
             role="tab"
             tabindex="0"
           >
@@ -154,6 +183,50 @@
             Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful
             in operation. Standing 150 metres tall, it's quite an awe-inspiring
             sight on the launch pad!
+          </p>
+        </article>
+
+        <article
+          hidden
+          class="technology-details flow"
+          role="tabpanel"
+          id="spaceport-tab"
+          tabindex="0"
+        >
+          <header class="flow">
+            <p class="ff-sans-cond uppercase letter-spacing-3 text-accent">
+              The terminology...
+            </p>
+            <h2 class="ff-serif uppercase">Spaceport</h2>
+          </header>
+          <p class="text-accent">
+            A spaceport or cosmodrome is a site for launching (or receiving)
+            spacecraft, by analogy to the seaport for ships or airport for
+            aircraft. Based in the famous Cape Canaveral, our spaceport is
+            ideally situated to take advantage of the Earth’s rotation for
+            launch.
+          </p>
+        </article>
+
+        <article
+          hidden
+          class="technology-details flow"
+          role="tabpanel"
+          id="capsule-tab"
+          tabindex="0"
+        >
+          <header class="flow">
+            <p class="ff-sans-cond uppercase letter-spacing-3 text-accent">
+              The terminology...
+            </p>
+            <h2 class="ff-serif uppercase">Space capsule</h2>
+          </header>
+          <p class="text-accent">
+            A space capsule is an often-crewed spacecraft that uses a blunt-body
+            reentry capsule to reenter the Earth's atmosphere without wings. Our
+            capsule is where you'll spend your time during the flight. It
+            includes a space gym, cinema, and plenty of other activities to keep
+            you entertained.
           </p>
         </article>
       </main>
