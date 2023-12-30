@@ -366,6 +366,7 @@ select {
 }
 
 .primary-navigation a {
+  display: block;
   text-decoration: none;
 }
 
@@ -380,7 +381,7 @@ select {
 
 @media (max-width: 35em) {
   .primary-navigation {
-    --underline-gap: 0.5rem;
+    --underline-gap: 0;
     gap: 1rem;
     position: fixed;
     z-index: 1000;
@@ -395,6 +396,10 @@ select {
 
   .primary-navigation[data-visible="true"] {
     transform: translateX(0);
+  }
+
+  .primary-navigation a {
+    padding: 0.5rem;
   }
 
   .primary-navigation.underline-indicators > .active {
@@ -434,7 +439,6 @@ select {
   }
 
   .primary-navigation a {
-    display: block;
     padding-block: 2rem;
   }
 }
