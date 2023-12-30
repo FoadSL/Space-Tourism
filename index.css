@@ -346,7 +346,7 @@ select {
 
 .primary-navigation {
   --gap: clamp(1.5rem, 5vw, 3.5rem);
-  --underline-gap: 2rem;
+  --underline-gap: 0;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -431,6 +431,11 @@ select {
 @media (min-width: 35em) {
   .primary-navigation {
     padding-inline: clamp(3rem, 7vw, 7rem);
+  }
+
+  .primary-navigation a {
+    display: block;
+    padding-block: 2rem;
   }
 }
 
